@@ -1,0 +1,19 @@
+$sm: 576px;
+$md: 768px;
+$lg: 991px;
+$xl: 1200px;
+
+.navbar {
+    width: 100%;
+    .navbar-link{
+        margin-right: auto;
+        margin-left: auto;
+        font-size: xx-large;
+    }
+}
+
+@media (max-width: $lg) {
+    .sm-icon-collapse{
+        visibility: collapse;
+    }
+}
