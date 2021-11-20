@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import NavBS from './components/NavBS/NavBS'
+import ItemListContainer from './components/NavBS/ItemListContainer';
 
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
           Learn React
         </a>*/}
       </header>
+      <div>
+        <ItemListContainer greeting='¡Bienvenido al Sitio!'/>
+      </div>
     </div>
   );
 }

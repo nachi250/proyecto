@@ -9,6 +9,12 @@ $xl: 1200px;
         margin-right: auto;
         margin-left: auto;
         font-size: xx-large;
+        .nav-link-home:hover{
+            text-decoration: underline;
+        }
+        .nav-link-shop:hover{
+            text-decoration: underline;
+        }
     }
 }
 
