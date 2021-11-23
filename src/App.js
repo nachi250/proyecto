@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
 import NavBS from './components/NavBS/NavBS'
-import ItemListContainer from './components/NavBS/ItemListContainer';
+import ItemListContainer from './components/ItemListContainer';
+
+
 
 
 function App() {

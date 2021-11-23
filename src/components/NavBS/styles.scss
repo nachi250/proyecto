@@ -23,3 +23,13 @@ $xl: 1200px;
         visibility: collapse;
     }
 }
+
+.card {
+    margin: auto;
+    width: 250px;
+    justify-content: center;
+    img {
+        margin: auto;
+        margin-top: 10px;
+    }
+}
