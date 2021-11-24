@@ -1,24 +1,23 @@
 import React,{useEffect, useState} from 'react';
 
-const ItemCount = () => {
-    const [count, setCount] = useState(0)
+const ItemCount = ({stock, inicial, onAdd}) => {
+    const [count, setCount] = useState(inicial)
     
-
     useEffect (() => { }, [])
-    const stock = 5
+    
     const increase = () => {
       if (count < stock){
         setCount(count+1)
         console.log('Se añadio producto')
-      }      
-    }
+        }      
+      }
 
     const decrease = () => {
-      if (count > 0){
+      if (count > 1){
         setCount(count-1)
         console.log('Se quitó producto')
-      }      
-    }
+        }      
+      }
 
     return (
         <div>
@@ -30,7 +29,7 @@ const ItemCount = () => {
                     <button type="button" className=" Disable btn btn-outline-secondary" disabled>{count}</button>
                     <button type="button" className="btn btn-outline-secondary" onClick={decrease}>-</button>
                 </div>
-                <button type="button" className="btn btn-outline-primary m-2" onClick={() => console.log('Add to Cart '+count)}>Add to cart</button>
+                <button type="button" className="btn btn-outline-primary m-2" onClick={onAdd}>Add to cart</button>
 
             </div>
         </div>
