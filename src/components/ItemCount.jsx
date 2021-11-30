@@ -30,7 +30,6 @@ const ItemCount = ({stock, inicial, onAdd}) => {
                     <button type="button" className="btn btn-outline-secondary" onClick={decrease}>-</button>
                 </div>
                 <button type="button" className="btn btn-outline-primary m-2" onClick={onAdd}>Add to cart</button>
-
             </div>
         </div>
     )
