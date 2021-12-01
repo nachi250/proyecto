@@ -6,26 +6,37 @@ import Item from "./Item";
 import { useEffect,useState
  } from "react/cjs/react.development";
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
     const [products, setProducts] = useState([])
+    const [input, setInput] = useState("")
 
-    useEffect(() => {
-        const list = getProducts()
-        list.then( list =>{
-            setProducts(list)
+    /*useEffect(() => {
+        fetch('https://api.mercadolibre.com/sites/MLA/search?q=iphone')
+        .then(response => {
+            return response.json()
+        }).then( res => {
+            setProducts(res.results.slice(0,15))
         })
-        return () => {
-            setProducts([])
-        }
     }, [])
+    console.log(products)*/
+
+    const handleClick = () => {
+        fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${input}`)
+        .then(response => {
+            return response.json()
+        }).then( res => {
+            setProducts(res.results.slice(0,15))
+        })
+    }
 
     return (
         <div className="ItemListContainer container">
-            <h1>{greeting}</h1>
-            {/*<ItemCount stock={5} inicial={1} onAdd={() => console.log('Add to Cart')}/>*/}
+            <div className="input-group m-3">
+            <input className="form-control" type="text" onChange={(evt) => setInput(evt.target.value)}/>
+            <button className="btn btn-outline-primary" onClick={handleClick}>Search</button>
+            </div> 
             <ItemList products={products}/>
         </div>
-
     )
 }
 

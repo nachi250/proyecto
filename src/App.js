@@ -13,7 +13,7 @@ function App() {
         <NavBS/>
       </header>
       <div>
-        <ItemListContainer greeting="Ocean's Tables"/>
+        <ItemListContainer/>
       </div>
     </div>
   );
