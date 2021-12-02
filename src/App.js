@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import NavBS from './components/NavBS/NavBS'
-import ItemListContainer from './components/ItemListContainer';
-
+import ItemListContainer from './components/ItemList/ItemListContainer';
+import ItemDetailCointainer from './components/ItemDetail/ItemDetailContainer';
 
 
 
@@ -14,6 +14,9 @@ function App() {
       </header>
       <div>
         <ItemListContainer greeting="Ocean's Tables"/>
+      </div>
+      <div>
+        <ItemDetailCointainer/>
       </div>
     </div>
   );

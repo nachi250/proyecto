@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.scss';
-import ItemCountBadget from '../ItemCountBadget';
+import ItemCountBadget from './ItemCountBadget';
 
 const CartWidget = () => {
     return (
