@@ -20,7 +20,7 @@ function ItemDetailCointainer() {
 
 
     return (
-        <div className="ItemListContainer container">
+        <div className="ItemDetailontainer container">
             <ItemDetail products={products} />
         </div>
     );
