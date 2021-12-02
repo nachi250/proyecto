@@ -6,22 +6,22 @@ import { useEffect, useState } from "react";
 
 
 function ItemDetailCointainer() {
-    const [products, setProducts] = useState([]);
+    const [product, setProduct] = useState([]);
 
     useEffect(() => {
         const list = getProducts();
         list.then(list => {
-            setProducts(list);
+            setProduct(list[0]);
         });
         return () => {
-            setProducts([]);
+            setProduct([]);
         };
     }, []);
 
 
     return (
         <div className="ItemDetailontainer container">
-            <ItemDetail products={products} />
+            <ItemDetail product={product} />
         </div>
     );
 }
