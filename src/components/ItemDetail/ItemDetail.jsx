@@ -1,4 +1,5 @@
 import React from "react";
+import ItemCount from "../ItemCount/ItemCount";
 
 const ItemDetail = ({product}) => {
     return (
@@ -13,7 +14,7 @@ const ItemDetail = ({product}) => {
               <h3 className="card-title">{product.name}</h3>
               <h5 className="card-text">{product.detail}</h5>
               <h3 className="card-text m-3"><small className="text-muted">Price: ${product.price},00</small></h3>
-              <button type="button" className="btn btn-outline-primary mt-3 mb-3">Buy me! :)</button>
+              <ItemCount stock={5} inicial={1} onAdd={() => console.log('Add to Cart')}/>
             </div>
           </div>
         </div>

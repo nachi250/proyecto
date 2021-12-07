@@ -21,12 +21,10 @@ const ItemCount = ({stock, inicial, onAdd}) => {
 
     return (
         <div>
-            <div className="card mb-3">
-                <img src={"https://images.pexels.com/photos/9574075/pexels-photo-9574075.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=200"} alt="" width="200"/>
-                <h5>Product Title</h5>
+            <div className="card mb-2 mt-2">
                 <div className="btn-group m-2" role="group" aria-label="First group">
                     <button type="button" className="btn btn-outline-secondary" onClick={increase}>+</button>
-                    <button type="button" className=" Disable btn btn-outline-secondary" disabled>{count}</button>
+                    <button type="button" className=" Disable btn btn-outline-secondary">{count}</button>
                     <button type="button" className="btn btn-outline-secondary" onClick={decrease}>-</button>
                 </div>
                 <button type="button" className="btn btn-outline-primary m-2" onClick={onAdd}>Add to cart</button>
