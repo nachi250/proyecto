@@ -3,7 +3,7 @@ import './App.css';
 import NavBS from './components/NavBS/NavBS'
 import ItemListContainer from './components/ItemList/ItemListContainer';
 import ItemDetailCointainer from './components/ItemDetail/ItemDetailContainer';
-
+import { BrowserRouter, Switch, Rouse } from 'react-router-dom'
 
 
 function App() {

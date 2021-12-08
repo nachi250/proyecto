@@ -4,26 +4,29 @@ const products = [
     {
         id: '1',
         name: 'Six foot ocean surfboard',
-        description: "These gorgeous ocean surfboards are made from solid pine wood.",
+        category: 'Tables',
+        description: 'These gorgeous ocean surfboards are made from solid pine wood.',
         price: '679',
         img: 'https://images.squarespace-cdn.com/content/v1/5e40959078eb0f389ed0731c/1633714475450-M2P261RJY21DNF2WJB3S/surfboard+6+feet.jpg?format=500w',
         detail: 'This beautiful 6 foot surfboard is made out of solid wood. It measures 6’ tall and 17” wide. It includes 3 epoxy resin waves and comes ready to hang.'
     },
     {
         id: '2',
-        name: 'Ocean wave surfboard',
-        description: "These gorgeous ocean surfboards are made from solid pine wood.",
-        price: '275',
-        img: 'https://images.squarespace-cdn.com/content/v1/5e40959078eb0f389ed0731c/1634182596512-7L6VUS20FED4PVWTDMCK/IMG_4440-1.jpeg?format=500w',
-        detail: ''
+        name: 'Ocean waves side tables',
+        category: 'furniture',
+        description: 'Set of 2 live edge side tables with ocean waves',
+        price: '450',
+        img: 'https://images.squarespace-cdn.com/content/v1/5e40959078eb0f389ed0731c/1611617170280-5P1MAEIPXIMENY5DJWPC/IMG_1125-1.jpeg?format=500w',
+        detail: 'These side table sets are made with solid 2” thick live edge pieces of walnut.  They’re heavy duty and include epoxy resin waves.'
     },
     {
         id: '3',
-        name: 'Ocean Surfboard 2 tall',
-        description: "These gorgeous ocean surfboards are made from solid pine wood.",
-        price: '149',
-        img: 'https://images.squarespace-cdn.com/content/v1/5e40959078eb0f389ed0731c/1633715382323-TTFGXE9RJOXHB1ZGDGVM/IMG_4346-1.jpeg?format=500w',
-        detail: ''
+        name: 'Surfboard bottle opener',
+        category: 'accesories',
+        description: 'Shark head surfboard bottle opener with ocean waves',
+        price: '75',
+        img: 'https://images.squarespace-cdn.com/content/v1/5e40959078eb0f389ed0731c/1632415191162-Y5QITSOV6GQJTUAKR3XR/IMG_4152.jpeg?format=500w',
+        detail: 'This bottle opener is made from solid wood and includes a cast iron shark head bottle opener. The surfboard includes 2 epoxy resin waves and comes ready to hang.'
     }
 ]
 
