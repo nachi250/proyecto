@@ -12,12 +12,23 @@ const NavBS = () => {
                 <span className="navbar-toggler-icon"></span>
               </button>
               <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav navbar-link">
+                <ul className="navbar-nav navbar-link ms-auto me-auto">
                   <li className="nav-item">
-                    <a className="nav-link active nav-link-home" aria-current="page" href="#">Home</a>
+                  <div class="dropdown">
+                    <button type="button" className="btn btn-light m-3 fs-3">Home</button>
+                  </div>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link active nav-link-shop" href="#">Shop</a>
+                    <div class="dropdown">
+                      <button class="btn btn-light dropdown-toggle m-3 fs-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        Shop
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Boards</a></li>
+                        <li><a class="dropdown-item" href="#">Furniture</a></li>
+                        <li><a class="dropdown-item" href="#">Accesories</a></li>
+                      </ul>
+                    </div>
                   </li>
                   </ul>
                   <ul className="navbar-nav">
