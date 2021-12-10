@@ -4,7 +4,7 @@ const products = [
     {
         id: '1',
         name: 'Six foot ocean surfboard',
-        category: 'Tables',
+        category: 'tables',
         description: 'These gorgeous ocean surfboards are made from solid pine wood.',
         price: '679',
         img: 'https://images.squarespace-cdn.com/content/v1/5e40959078eb0f389ed0731c/1633714475450-M2P261RJY21DNF2WJB3S/surfboard+6+feet.jpg?format=500w',
@@ -32,9 +32,21 @@ const products = [
 
 export const getProducts = () =>{
     return new Promise ((resolve, reject) => {
-        setTimeout(() => {
-            resolve(products)
-        }, 3000)
+        setTimeout(() => {resolve(products)}, 1000)
+    })
+}
+
+export const getProductById = (id) => {  
+    return new Promise((resolve, reject) => {
+        const product = products.find(prod => parseInt(prod.id) === parseInt(id))
+        setTimeout(() => resolve(product), 1000)
+    })
+}
+
+export const getProductsByCategory = (category) => {  
+    return new Promise ((resolve, reject) => {
+        const product = products.filter(prod => prod.category === category)
+        setTimeout(() => {resolve(product)}, 1000)
     })
 }
 

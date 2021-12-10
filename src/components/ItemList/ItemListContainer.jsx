@@ -1,24 +1,29 @@
 import React from "react"
 import ItemList from "./ItemList";
 import { useEffect,useState } from "react";
-import { getProducts } from "../../service/getProducts";
+import { useParams } from 'react-router-dom'
+import { getProductsByCategory } from "../../service/getProducts";
 
-function ItemListContainer({greeting}) {
-    const [products, setProducts] = useState([]);
+function ItemListContainer() {
+
+    const [products, setProduct] = useState([]);
+    const {objCategory} = useParams();
+    console.log(objCategory)
 
     useEffect(() => {
-        const list = getProducts();
-        list.then(list => {
-            setProducts(list);
-        });
+        getProductsByCategory(objCategory).then(item => {
+            setProduct(item)
+        }).catch(err  => {
+            console.log(err)
+        })
+
         return () => {
-            setProducts([]);
+            setProduct([]);
         };
     }, []);
 
     return (
         <div className="ItemListContainer container">
-            <h1>{greeting}</h1>
             <ItemList products={products} />
         </div>
 

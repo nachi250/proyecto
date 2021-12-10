@@ -10,15 +10,17 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 function App() {
   return (
     <div className="App">
-      <header className="">
+      <BrowserRouter>
         <NavBS/>
-      </header>
-      <div>
-        <ItemListContainer greeting="Ocean's Tables"/>
-      </div>
-      <div>
-        <ItemDetailCointainer/>
-      </div>
+          <Switch>
+            <Route exact path="/list/:objCategory">
+              <ItemListContainer/>
+            </Route>
+            <Route path="/detail/:objId">
+              <ItemDetailCointainer/>
+            </Route>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 }

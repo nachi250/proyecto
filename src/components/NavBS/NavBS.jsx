@@ -1,6 +1,7 @@
 import React from "react";
 import './styles.scss'
 import CartWidget from './CartWidget'
+import { Link } from "react-router-dom";
 
 
 const NavBS = () => {
@@ -20,13 +21,11 @@ const NavBS = () => {
                   </li>
                   <li className="nav-item">
                     <div class="dropdown">
-                      <button class="btn btn-light dropdown-toggle m-3 fs-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        Shop
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><a class="dropdown-item" href="#">Boards</a></li>
-                        <li><a class="dropdown-item" href="#">Furniture</a></li>
-                        <li><a class="dropdown-item" href="#">Accesories</a></li>
+                      <button className="btn btn-light dropdown-toggle m-3 fs-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">Shop</button>
+                      <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><Link to={'/list/boards'}>Boards</Link></li>
+                        <li><Link to={'/list/furniture'}>Furniture</Link></li>
+                        <li><Link to={'/list/accesories'}>Accesories</Link></li>
                       </ul>
                     </div>
                   </li>

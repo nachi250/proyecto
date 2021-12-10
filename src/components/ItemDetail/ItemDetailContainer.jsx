@@ -1,18 +1,22 @@
 import React from "react";
 import ItemDetail from "./ItemDetail";
-import { getProducts } from "../../service/getProducts";
+import { getProductById } from "../../service/getProducts";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 
 
 function ItemDetailCointainer() {
     const [product, setProduct] = useState([]);
-
+    const {objId} = useParams();
+    console.log(objId)
     useEffect(() => {
-        const list = getProducts();
-        list.then(list => {
-            setProduct(list[0]);
-        });
+        getProductById(objId).then(item => {
+            setProduct(item)
+        }).catch(err  => {
+            console.log(err)
+        })
+
         return () => {
             setProduct([]);
         };
@@ -21,7 +25,7 @@ function ItemDetailCointainer() {
 
     return (
         <div className="ItemDetailontainer container">
-            <ItemDetail product={product} />
+            <ItemDetail product={product}/>
         </div>
     );
 }
