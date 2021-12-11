@@ -23,9 +23,9 @@ const NavBS = () => {
                     <div class="dropdown">
                       <button className="btn btn-light dropdown-toggle m-3 fs-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">Shop</button>
                       <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><Link to={'/list/boards'}>Boards</Link></li>
-                        <li><Link to={'/list/furniture'}>Furniture</Link></li>
-                        <li><Link to={'/list/accesories'}>Accesories</Link></li>
+                        <li><Link to={'/list/tables'}><button type="button" class="btn btn-link">Boards</button></Link></li>
+                        <li><Link to={'/list/furniture'}><button type="button" class="btn btn-link">Furniture</button></Link></li>
+                        <li><Link to={'/list/accesories'}><button type="button" class="btn btn-link">Accesories</button></Link></li>
                       </ul>
                     </div>
                   </li>

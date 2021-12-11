@@ -18,7 +18,7 @@ function ItemListContainer() {
         })
 
         return () => {
-            setProduct([]);
+            setProduct([objCategory]);
         };
     }, []);
 

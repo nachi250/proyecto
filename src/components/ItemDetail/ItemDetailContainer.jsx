@@ -18,7 +18,7 @@ function ItemDetailCointainer() {
         })
 
         return () => {
-            setProduct([]);
+            setProduct([objId]);
         };
     }, []);
 
