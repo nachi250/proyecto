@@ -1,8 +1,63 @@
 import React from "react";
+import { useState } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import './itemDetail.scss'
+import { Link } from "react-router-dom";
 
-const ItemDetail = ({product}) => {
+const InputCount = ({onConfirm, maxQuantity}) =>{
+  const [count, setCount] = useState(1)
+
+  const handleChange = ({target}) => {
+    if(target.value <= maxQuantity && target.value > 0) {
+      setCount(target.value)
+    }
+  }
+
+  return (
+    <div>
+      <input type='number' onChange={handleChange} value={count}/>
+      <button onCLick={() => onConfirm(count)}>Add to cart</button>
+    </div>
+  )
+}
+
+const ButtonCount = ({ onConfirm, maxQuantity}) => {
+  const [count, setCount] = useState(1)
+
+  const increment = () => {
+    if (count < maxQuantity) {
+      setCount(count + 1)
+    }
+  }
+
+  const decrement = () => {
+    if (count > 1) {
+      setCount(count - 1)
+    }
+  }
+
+  return (
+    <div>
+      <div className="mb-2 mt-2">
+          <div className="btn-group m-2" role="group" aria-label="First group">
+              <button type="button" className="btn btn-outline-secondary" onClick={increment}>+</button>
+              <button type="button" className="Disable btn border-secondary">{count}</button>
+              <button type="button" className="btn btn-outline-secondary" onClick={decrement}>-</button>
+          </div>
+          <button type="button" className="btn btn-outline-primary m-2" onClick={() => onConfirm(count)}>Add to cart</button>
+      </div>
+      <Link to='/cart'><button type="button" className="btn btn-outline-warning m-2">Purchase</button></Link>
+    </div>
+  )
+}
+
+const ItemDetail = ({product, inputType = ''}) => {
+
+  const Count = inputType === 'input' ? InputCount : ButtonCount
+
+  const addToCart = (count) => {
+    console.log(`Added to cart ${count}`)
+  }
     return (
       <div className="row shadow p-3 mb-5 bg-body rounded m-3">
         <div className="card mb-3">
@@ -15,7 +70,7 @@ const ItemDetail = ({product}) => {
               <h3 className="card-title">{product.name}</h3>
               <h5 className="card-text">{product.detail}</h5>
               <h3 className="card-text m-3"><small className="text-muted">Price: ${product.price},00</small></h3>
-              <ItemCount stock={5} inicial={1} onAdd={() => console.log('Add to Cart')}/>
+              <Count onConfirm={addToCart} maxQuantity={product?.stock}/>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import NavBS from './components/NavBS/NavBS'
 import ItemListContainer from './components/ItemList/ItemListContainer';
 import ItemDetailCointainer from './components/ItemDetail/ItemDetailContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'; 
-
+import CartList from './components/CartList/CartList';
 
 
 function App() {
@@ -21,6 +21,9 @@ function App() {
             </Route>
             <Route exact path="/item/:objId">
               <ItemDetailCointainer/>
+            </Route>
+            <Route exact path="/cart">
+              <CartList/>
             </Route>
         </Switch>
       </BrowserRouter>

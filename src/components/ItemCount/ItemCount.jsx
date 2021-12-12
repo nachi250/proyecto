@@ -22,7 +22,7 @@ const ItemCount = ({stock, inicial, onAdd}) => {
 
     return (
         <div>
-            <div className="card mb-2 mt-2 itemCount-width">
+            <div className="card mb-2 mt-2 itemCoun">
                 <div className="btn-group m-2" role="group" aria-label="First group">
                     <button type="button" className="btn btn-outline-secondary" onClick={increase}>+</button>
                     <button type="button" className=" Disable btn btn-outline-secondary">{count}</button>
