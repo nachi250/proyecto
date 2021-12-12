@@ -8,7 +8,7 @@ export default function Item({product}) {
             <h4>{product.name}</h4>
             <h5>Price ${product.price}</h5>
             <p>{product.description}</p>
-            <button type="button" className="btn btn-outline-primary mb-3"><Link to={`/detail/${product.id}`}>Desciption</Link></button>
+            <Link to={`/item/${product.id}` }><button type="button" className="btn btn-outline-primary mb-3" style={{ textDecoration: 'none' }}>Desciption</button></Link>
         </div>
     )
 }

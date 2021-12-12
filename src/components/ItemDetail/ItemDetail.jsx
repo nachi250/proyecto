@@ -1,12 +1,13 @@
 import React from "react";
 import ItemCount from "../ItemCount/ItemCount";
+import './itemDetail.scss'
 
 const ItemDetail = ({product}) => {
     return (
       <div className="row shadow p-3 mb-5 bg-body rounded m-3">
         <div className="card mb-3">
         <div className="row g-0">
-          <div className="col-md-4">
+          <div className="col-md-4 mt-3">
             <img src={product.img} className="img-fluid rounded-start" alt="..." width="200"/>
           </div>
           <div className="col-md-8">

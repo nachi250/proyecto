@@ -1,14 +1,18 @@
 import React from "react";
 import './styles.scss'
 import CartWidget from './CartWidget'
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 const NavBS = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded">
             <div className="container-fluid">
-              <a className="navbar-brand" href="#"><img src="https://images.squarespace-cdn.com/content/v1/5e40959078eb0f389ed0731c/1598139382454-GC2WIWKI8F5TV8RL0KXU/Rusted+Indigo_Indigo.png?format=1500w" alt="" width="120" /></a>
+              <a className="navbar-brand" href="#">
+                <Link to={'/'}>
+                  <img src="https://images.squarespace-cdn.com/content/v1/5e40959078eb0f389ed0731c/1598139382454-GC2WIWKI8F5TV8RL0KXU/Rusted+Indigo_Indigo.png?format=1500w" alt="" width="120" />
+                </Link>
+              </a>
               <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
               </button>
@@ -23,9 +27,9 @@ const NavBS = () => {
                     <div class="dropdown">
                       <button className="btn btn-light dropdown-toggle m-3 fs-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">Shop</button>
                       <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><Link to={'/list/tables'}><button type="button" class="btn btn-link">Boards</button></Link></li>
-                        <li><Link to={'/list/furniture'}><button type="button" class="btn btn-link">Furniture</button></Link></li>
-                        <li><Link to={'/list/accesories'}><button type="button" class="btn btn-link">Accesories</button></Link></li>
+                        <li><NavLink  to={'/category/boards'} className="m-3" style={{ textDecoration: 'none', color: 'black' }} activeClassName='fw-bolder m-3'>Boards</NavLink></li>
+                        <li><NavLink  to={'/category/furniture'} className="m-3" style={{ textDecoration: 'none', color: 'black' }} activeClassName='fw-bolder m-3'>Furniture</NavLink></li>
+                        <li><NavLink  to={'/category/accesories'} className="m-3" style={{ textDecoration: 'none', color: 'black' }} activeClassName='fw-bolder m-3'>Accesories</NavLink></li>
                       </ul>
                     </div>
                   </li>

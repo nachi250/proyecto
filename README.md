@@ -1,3 +1,14 @@
+Proyecto Integrador del curso de React JS de CoderHouse.
+Realizado por Ignacio Soria.
+Primera entrega del proyecto final. 
+El proyecto consiste en un e-commerce para un emprendimiento de productos con madera y resina con motivos del oceano, el surf y la playa.
+Hasta el momento el proyecto incluye:
+- La creación de la App de react
+- El menu de opciones o NavBar
+- Componentes
+- Promise y Map
+- Routing
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

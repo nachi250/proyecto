@@ -16,10 +16,10 @@ function App() {
             <Route exact path="/">
               <ItemListContainer/>
             </Route>
-            <Route exact path="/list/:objCategory">
+            <Route exact path="/category/:objCategory">
               <ItemListContainer/>
             </Route>
-            <Route exact path="/detail/:objId">
+            <Route exact path="/item/:objId">
               <ItemDetailCointainer/>
             </Route>
         </Switch>

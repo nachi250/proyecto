@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 
 
 function ItemDetailCointainer() {
+    
     const [product, setProduct] = useState([]);
     const {objId} = useParams();
     console.log(objId)
@@ -18,9 +19,9 @@ function ItemDetailCointainer() {
         })
 
         return () => {
-            setProduct([objId]);
+            setProduct([]);
         };
-    }, []);
+    }, [objId]);
 
 
     return (
