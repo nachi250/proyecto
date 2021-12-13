@@ -4,7 +4,7 @@ import ItemCount from "../ItemCount/ItemCount";
 import './itemDetail.scss'
 import { Link } from "react-router-dom";
 
-const InputCount = ({onConfirm, maxQuantity}) =>{
+{/*const InputCount = ({onConfirm, maxQuantity}) =>{
   const [count, setCount] = useState(1)
 
   const handleChange = ({target}) => {
@@ -49,11 +49,11 @@ const ButtonCount = ({ onConfirm, maxQuantity}) => {
       <Link to='/cart'><button type="button" className="btn btn-outline-warning m-2">Purchase</button></Link>
     </div>
   )
-}
+}*/}
 
 const ItemDetail = ({product, inputType = ''}) => {
 
-  const Count = inputType === 'input' ? InputCount : ButtonCount
+  //const Count = inputType === 'input' ? InputCount : ButtonCount
 
   const addToCart = (count) => {
     console.log(`Added to cart ${count}`)
@@ -70,7 +70,7 @@ const ItemDetail = ({product, inputType = ''}) => {
               <h3 className="card-title">{product.name}</h3>
               <h5 className="card-text">{product.detail}</h5>
               <h3 className="card-text m-3"><small className="text-muted">Price: ${product.price},00</small></h3>
-              <Count onConfirm={addToCart} maxQuantity={product?.stock}/>
+              <ItemCount onConfirm={addToCart} maxQuantity={product.stock}/>
             </div>
           </div>
         </div>
