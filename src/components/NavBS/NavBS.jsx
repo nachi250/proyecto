@@ -2,9 +2,14 @@ import React from "react";
 import './styles.scss'
 import CartWidget from './CartWidget'
 import { Link, NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
 
 const NavBS = () => {
+
+    const {getCantidad} = useContext(CartContext);
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded">
             <div className="container-fluid">
@@ -58,6 +63,9 @@ const NavBS = () => {
                   </li>
                   <li className="nav-item sm-icon-collapse">
                       <CartWidget/>
+                  </li>
+                  <li className="nav-item sm-icon-collapse">
+                    <span class="badge bg-secondary">{getCantidad}</span>
                   </li>
                 </ul>
               </div>

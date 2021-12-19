@@ -1,8 +1,9 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import ItemCount from "../ItemCount/ItemCount";
 import './itemDetail.scss'
 import { Link } from "react-router-dom";
+import { CartContext } from '../../context/CartContext';
 
 {/*const InputCount = ({onConfirm, maxQuantity}) =>{
   const [count, setCount] = useState(1)
@@ -51,16 +52,27 @@ const ButtonCount = ({ onConfirm, maxQuantity}) => {
   )
 }*/}
 
-const ItemDetail = ({product, inputType = ''}) => {
+const ItemDetail = ({product}) => {
+  
+  const {addItem} = useContext(CartContext)
+
+  const [buy, setBuy] = useState(false);
+  const [qty, setQty] = useState(0);
+
+  const addToCart = (qty) => {
+      setBuy(true);
+      setQty(qty);
+  }
+
+  const handlePurchase = () => {
+      addItem(product, qty);
+
+  }
 
   //const Count = inputType === 'input' ? InputCount : ButtonCount
-
-  const addToCart = (count) => {
-    console.log(`Added to cart ${count}`)
-  }
     return (
       <div className="row shadow p-3 mb-5 bg-body rounded m-3">
-        <div className="card mb-3">
+        <div className="card col mb-3">
         <div className="row g-0">
           <div className="col-md-4 mt-3">
             <img src={product.img} className="img-fluid rounded-start" alt="..." width="200"/>
@@ -70,7 +82,13 @@ const ItemDetail = ({product, inputType = ''}) => {
               <h3 className="card-title">{product.name}</h3>
               <h5 className="card-text">{product.detail}</h5>
               <h3 className="card-text m-3"><small className="text-muted">Price: ${product.price},00</small></h3>
-              <ItemCount onConfirm={addToCart} maxQuantity={product.stock}/>
+              
+              {!buy ?
+                <ItemCount maxQuantity={product.stock} onConfirm = {(qty) => addToCart (qty)} />
+                :
+                <button type="button" className="btn btn-outline-warning m-2" onClick = {handlePurchase} > <Link to= "/cart" style={{textDecoration: "none", color: "black"}}> Purchase </Link></button>
+                }
+
             </div>
           </div>
         </div>
