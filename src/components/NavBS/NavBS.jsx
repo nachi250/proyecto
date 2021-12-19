@@ -2,13 +2,10 @@ import React from "react";
 import './styles.scss'
 import CartWidget from './CartWidget'
 import { Link, NavLink } from "react-router-dom";
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
+
 
 
 const NavBS = () => {
-
-    const {sumarCantidades} = useContext(CartContext);
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded">
@@ -62,7 +59,7 @@ const NavBS = () => {
                     </a>
                   </li>
                   <li className="nav-item sm-icon-collapse">
-                      <CartWidget/>
+                      <Link to='/cart'><CartWidget/></Link>
                   </li>
                 </ul>
               </div>

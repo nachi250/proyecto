@@ -4,10 +4,10 @@ import { CartContext } from "../../context/CartContext";
 
 
 const ItemCountBadget = () => {
-    const {sumarCantidades} = useContext(CartContext);
+    const {addQty} = useContext(CartContext);
     return (
         
-        <p className="badge bg-secondary">{sumarCantidades()}</p>
+        <p className="badge bg-secondary">{addQty()}</p>
     )
 }
 
