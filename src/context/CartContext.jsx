@@ -6,7 +6,7 @@ const CartContextProvider = ({children}) => {
 
     const [cart, setCart] = useState([]);
 
-    const getCantidad = () => {
+    const sumarCantidades = () => {
         let subTotal = 0;
         cart.forEach(elemento=> {
             console.log(elemento);
@@ -27,6 +27,8 @@ const CartContextProvider = ({children}) => {
         } else {
             setCart([...cart, {item: producto, cantidad: quantity}]);
         }
+        console.log('funcion sumar cantidades consologueada '+sumarCantidades())
+        sumarCantidades()
     }
 
     const isInCart = (item) => {
@@ -34,20 +36,13 @@ const CartContextProvider = ({children}) => {
         return cart.some(producto => producto.item === item );
     }
 
-    const removeItem = (item) => {
+    //const removeItem = (item) => {}
 
-    }
-
-    const cleanCart = () => {
-
-    }
+    //const cleanCart = () => {}
 
 
     return(
-        <CartContext.Provider value = {{
-            cart,
-            addItem, removeItem, cleanCart, getCantidad
-        }}>
+        <CartContext.Provider value = {{cart, addItem, sumarCantidades}}>
             {children}
         </CartContext.Provider>
     )

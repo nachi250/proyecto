@@ -1,8 +1,13 @@
 import React from "react"
+import { useContext } from "react";
+import { CartContext } from "../../context/CartContext";
 
-const ItemCountBadget = ({count}) => {
+
+const ItemCountBadget = () => {
+    const {sumarCantidades} = useContext(CartContext);
     return (
-        <p className="badge bg-secondary">{'0'}</p>
+        
+        <p className="badge bg-secondary">{sumarCantidades()}</p>
     )
 }
 
