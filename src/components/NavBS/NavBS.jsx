@@ -22,12 +22,12 @@ const NavBS = () => {
                 <ul className="navbar-nav navbar-link ms-auto me-auto">
                   <li className="nav-item">
                   <div class="dropdown">
-                    <button type="button" className="btn btn-light m-3 fs-3">Home</button>
+                    <h1 className="btn btn-light m-3 fs-2">Home</h1>
                   </div>
                   </li>
                   <li className="nav-item">
                     <div class="dropdown">
-                      <button className="btn btn-light dropdown-toggle m-3 fs-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">Shop</button>
+                      <h1 className="btn btn-light m-3 fs-2" id="dropdownMenuButton1" data-bs-toggle="dropdown">Shop</h1>
                       <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                         <li><NavLink  to={'/category/boards'} className="m-3" style={{ textDecoration: 'none', color: 'black' }} activeClassName='fw-bolder m-3'>Boards</NavLink></li>
                         <li><NavLink  to={'/category/furniture'} className="m-3" style={{ textDecoration: 'none', color: 'black' }} activeClassName='fw-bolder m-3'>Furniture</NavLink></li>

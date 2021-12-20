@@ -10,7 +10,6 @@ function ItemDetailCointainer() {
     
     const [product, setProduct] = useState([]);
     const {objId} = useParams();
-    console.log(objId)
     useEffect(() => {
         getProductById(objId).then(item => {
             setProduct(item)

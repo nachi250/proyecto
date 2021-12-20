@@ -9,7 +9,6 @@ function ItemListContainer() {
 
     const [products, setProduct] = useState([]);
     const {objCategory} = useParams();
-    console.log(objCategory)
 
     useEffect(() => {
         if(objCategory){

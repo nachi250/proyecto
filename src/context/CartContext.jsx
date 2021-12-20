@@ -9,7 +9,6 @@ const CartContextProvider = ({children}) => {
     const addQty = () => {
         let subTotal = 0;
         cart.forEach(product=> {
-            console.log(product);
             subTotal += product.quantity
         })
         return subTotal;
@@ -18,7 +17,6 @@ const CartContextProvider = ({children}) => {
     const addItem = (product, quantity) => {
 
         const flag = isInCart(product);
-        console.log(flag);
         if (flag) {
             let repeatedItem = cart.find (element => element.item === product);
             repeatedItem.quantity += quantity;
@@ -27,7 +25,6 @@ const CartContextProvider = ({children}) => {
         } else {
             setCart([...cart, {item: product, quantity: quantity}]);
         }
-        console.log('funcion sumar cantidades consologueada '+addQty())
         addQty()
     }
 
@@ -36,17 +33,23 @@ const CartContextProvider = ({children}) => {
         return cart.some(product => product.item === item );
     }
 
-    const removeItem = (item) => {
-
+    const removeItem = (productId) => {        
     }
 
     const cleanCart = () => {
         setCart([]);
     }
 
+    const total = () => {
+        let total = 0;
+        cart.forEach(product=> {
+            total += parseInt(product.item.price*product.quantity)
+        })
+        return total
+    }
 
     return(
-        <CartContext.Provider value = {{cart, addItem, addQty, cleanCart, removeItem}}>
+        <CartContext.Provider value = {{cart, addItem, addQty, cleanCart, removeItem, total}}>
             {children}
         </CartContext.Provider>
     )

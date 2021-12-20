@@ -86,7 +86,7 @@ const ItemDetail = ({product}) => {
               {!buy ?
                 <ItemCount maxQuantity={product.stock} onConfirm = {(qty) => addToCart (qty)} />
                 :
-                <button type="button" className="btn btn-outline-warning m-2" onClick = {handlePurchase} > <Link to= "/cart" style={{textDecoration: "none", color: "black"}}> Purchase </Link></button>
+                <Link to= "/cart"><button type="button" className="btn btn-outline-warning m-2" onClick = {handlePurchase}>Purchase</button></Link>
                 }
 
             </div>
