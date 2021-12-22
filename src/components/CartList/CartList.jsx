@@ -27,7 +27,7 @@ const CartList = () => {
                                     <div className="col-3 m-auto">{producto.item.name} </div>
                                     <div className="col-3 m-auto">${producto.item.price},00</div>
                                     <div className="col-2 m-auto">{producto.quantity}</div>
-                                    <div className="col-1 m-auto"><button type="button" className="btn btn-outline-danger" onClick={removeItem(producto.item.id)}>X</button></div>
+                                    <div className="col-1 m-auto"><button type="button" className="btn btn-outline-danger" id={producto.item.id} onClick={removeItem}>X</button></div>
                                 </div>})}
 
                     <div className='row m-3'>  

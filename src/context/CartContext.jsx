@@ -33,7 +33,11 @@ const CartContextProvider = ({children}) => {
         return cart.some(product => product.item === item );
     }
 
-    const removeItem = (productId) => {        
+    const removeItem = (e) => {        
+        let btnClicked= e.target
+        let id = btnClicked.getAttribute('id')
+        let newCart = cart.filter (element => element.item.id !== id);
+        setCart([...newCart])
     }
 
     const cleanCart = () => {
