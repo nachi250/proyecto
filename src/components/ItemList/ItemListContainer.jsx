@@ -2,15 +2,13 @@ import React from "react"
 import ItemList from "./ItemList";
 import { useEffect,useState } from "react";
 import { useParams } from 'react-router-dom'
-import { getProductsByCategory } from "../../service/getProducts";
-import { getProducts } from '../../service/getProducts'
 import { collection, getDocs} from 'firebase/firestore'
 import { db } from '../../service/firebase/firebase'
 
 function ItemListContainer() {
 
     const [products, setProduct] = useState([]);
-    const {objCategory} = useParams();
+    const {categoryId} = useParams();
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -18,10 +16,10 @@ function ItemListContainer() {
         getDocs(collection(db, 'items')).then(querySnapshot => {
             console.log(querySnapshot)
             const products = querySnapshot.docs.map(doc =>{
-                console.log(doc)
                 return {id: doc.id, ...doc.data()}
             })
-            setProduct(products)
+            categoryId === undefined ? setProduct(products) :
+            setProduct(products.filter((producto) => producto.category === categoryId))
         }).catch((error)=> {
             console.log('Error searching items', error)
         }).finally(() => {
@@ -31,7 +29,7 @@ function ItemListContainer() {
         return () => {
             setProduct([]);
         };
-    }, [objCategory]);
+    }, [categoryId]);
 
     if (loading) {
         return <div class="spinner-border text-secondary" role="status">

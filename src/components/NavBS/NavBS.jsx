@@ -2,10 +2,24 @@ import React from "react";
 import './styles.scss'
 import CartWidget from './CartWidget'
 import { Link, NavLink } from "react-router-dom";
-
+import { useEffect, useState } from "react";
+import { db } from '../../service/firebase/firebase'
+import { getDocs, collection, QuerySnapshot } from 'firebase/firestore'
 
 
 const NavBS = () => {
+
+  const [categories, setCategories] = useState([])
+
+  useEffect(() => {
+    getDocs(collection(db, 'categories')).then((querySnapshot) => {
+      const categories = querySnapshot.docs.map(doc => {
+        return {id: doc.id, ...doc.data()}
+      })
+      console.log(categories)
+      setCategories(categories)
+    })
+  },[])
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light shadow-sm p-3 mb-5 bg-body rounded">
@@ -29,9 +43,12 @@ const NavBS = () => {
                     <div class="dropdown">
                       <h1 className="btn btn-light m-3 fs-2" id="dropdownMenuButton1" data-bs-toggle="dropdown">Shop</h1>
                       <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                        <li><NavLink  to={'/category/boards'} className="m-3" style={{ textDecoration: 'none', color: 'black' }} activeClassName='fw-bolder m-3'>Boards</NavLink></li>
-                        <li><NavLink  to={'/category/furniture'} className="m-3" style={{ textDecoration: 'none', color: 'black' }} activeClassName='fw-bolder m-3'>Furniture</NavLink></li>
-                        <li><NavLink  to={'/category/accesories'} className="m-3" style={{ textDecoration: 'none', color: 'black' }} activeClassName='fw-bolder m-3'>Accesories</NavLink></li>
+                      {categories.map( cat =>
+                        <li>
+                          <NavLink key={cat.id}  to={`/category/${cat.id}`} className="m-3" style={{ textDecoration: 'none', color: 'black' }} activeClassName='fw-bolder m-3'>{cat.description}</NavLink>
+                        </li>
+                      )}
+                        
                       </ul>
                     </div>
                   </li>
