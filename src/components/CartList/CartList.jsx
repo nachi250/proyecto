@@ -50,13 +50,6 @@ const CartList = () => {
                     <h5 className="card-title placeholder-glow">
                       Parece que no hay productos para mostrar!
                     </h5>
-                    <p className="card-text placeholder-glow">
-                        <span className="placeholder col-7"></span>
-                        <span className="placeholder col-4"></span>
-                        <span className="placeholder col-4"></span>
-                        <span className="placeholder col-6"></span>
-                        <span className="placeholder col-8"></span>
-                    </p>
                     <Link to="/"><button type="button" className=" col-3 btn btn-outline-info m-3">Go buy</button></Link>
                 </div>
             </div>

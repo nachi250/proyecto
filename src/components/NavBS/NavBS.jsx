@@ -22,7 +22,7 @@ const NavBS = () => {
                 <ul className="navbar-nav navbar-link ms-auto me-auto">
                   <li className="nav-item">
                   <div class="dropdown">
-                    <h1 className="btn btn-light m-3 fs-2">Home</h1>
+                    <Link to={'/'}><h1 className="btn btn-light m-3 fs-2" style={{ textDecoration: 'none', color: 'black' }}>Home</h1></Link>
                   </div>
                   </li>
                   <li className="nav-item">

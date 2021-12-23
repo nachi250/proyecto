@@ -74,7 +74,7 @@ const ItemDetail = ({product}) => {
       <div className="row shadow p-3 mb-5 bg-body rounded m-3">
         <div className="card col mb-3">
         <div className="row g-0">
-          <div className="col-md-4 mt-3">
+          <div className="col-md-4 mt-3 mb-4">
             <img src={product.img} className="img-fluid rounded-start" alt="..." width="200"/>
           </div>
           <div className="col-md-8">
