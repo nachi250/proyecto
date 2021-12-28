@@ -29,7 +29,7 @@ const CartContextProvider = ({children}) => {
     }
 
     const isInCart = (item) => {
-        console.log(item);
+        //console.log(item);
         return cart.some(product => product.item === item );
     }
 

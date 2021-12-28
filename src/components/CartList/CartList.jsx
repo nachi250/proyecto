@@ -27,7 +27,7 @@ const CartList = () => {
                                     <div className="col-3 m-auto">{producto.item.name} </div>
                                     <div className="col-3 m-auto">${producto.item.price},00</div>
                                     <div className="col-2 m-auto">{producto.quantity}</div>
-                                    <div className="col-1 m-auto"><button type="button" className="btn btn-outline-danger" id={producto.item.id} onClick={removeItem}>X</button></div>
+                                    <div className="col-1 m-auto"><button type="button" className="btn-close" id={producto.item.id} onClick={removeItem}></button></div>
                                 </div>})}
 
                     <div className='row m-3'>  
@@ -38,8 +38,8 @@ const CartList = () => {
                     </div>
             
                     <div className='row m-3 d-flex justify-content-center'>
-                        <button type="button" className=" col-3 btn btn-outline-info m-3">Payment Options</button>
-                        <button type="button" className=" col-3 btn btn-outline-danger m-3" onClick={cleanCart}>Clean Cart</button>
+                        <Link to="/checkout"><button type="button" className=" col-3 btn btn-outline-info m-3">Set order</button></Link>
+                        <button type="button" className=" col-3 btn btn-outline-danger m-3" onClick={cleanCart}>Clean cart</button>
                     </div>
             </div>
             :
