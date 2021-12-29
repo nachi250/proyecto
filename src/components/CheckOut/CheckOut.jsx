@@ -2,15 +2,20 @@ import React from "react";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { useState } from "react";
-import { addDoc, collection, getDoc, getFirestore, writeBatch } from 'firebase/firestore'
+import { 
+    addDoc, 
+    collection, 
+    getDoc, 
+    doc,
+    writeBatch } 
+    from 'firebase/firestore'
+import { db } from '../../service/firebase/firebase'
 
 
 const CheckOut = () => {
     const {cart, cleanCart, total} = useContext (CartContext);
     const [form, setForm] = useState({name: "", mail: "", phone:""});
-    const [orderId, setOrderId] = useState()
-
-    const date = new Date()
+    const [loadingOrder, setLoadingOrder] = useState(false);
 
 
     const getForm = (e) => {
@@ -20,8 +25,12 @@ const CheckOut = () => {
             [name]: value
         });
     };
-    
+
+    const date = new Date()
+
     const dispatchPurchase = () => {
+
+        setLoadingOrder(true)
 
         const newOrder = {
             buyer: {name: form.name, phone: form.phone, mail: form.mail},
@@ -31,23 +40,30 @@ const CheckOut = () => {
         };
         //console.log(newOrder)
 
-        const db = getFirestore();
-        const batch = writeBatch(db)
+        const batch = writeBatch(db);
+        const outOfStock = [];
 
-        addDoc(collection(db, 'orders'), newOrder).then((doc) => {
-                    batch.commit().then(() => {
-                        console.log(`order successfully generated: ${doc.id}`)
-                    });
-                }).catch((error) => {
-                    console.error(error);
-                }).finally(() => {
-                    setTimeout(() => {
-                        cleanCart();
-                    }, 1000);
-                });
+        newOrder.items.forEach((prod) => {
+            getDoc(doc(db, 'items'), prod.id).then((documentSnapshot) => {
+                if(documentSnapshot.data().stock >= prod.quantity) {
+                    batch.update(doc(db, 'items', documentSnapshot),{
+                        stock: documentSnapshot.data().stock - prod.quantity
+                    })
+                } else {
+                    outOfStock.push({ id: documentSnapshot.id, ...documentSnapshot.data()})
+                }
+            })
+        })
 
-
-        // const updateStock = () =>{ }
+        if (outOfStock === 0) {
+            addDoc(collection(db, 'orders'), newOrder).then(({id}) =>{
+                batch.commit().then(() => {
+                    console.log('success, order ID: ', id)
+                })
+            }).catch((error) =>{
+                console.log('fail ',error)
+            })
+        }
 
 }
 
