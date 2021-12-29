@@ -5,52 +5,6 @@ import './itemDetail.scss'
 import { Link } from "react-router-dom";
 import { CartContext } from '../../context/CartContext';
 
-{/*const InputCount = ({onConfirm, maxQuantity}) =>{
-  const [count, setCount] = useState(1)
-
-  const handleChange = ({target}) => {
-    if(target.value <= maxQuantity && target.value > 0) {
-      setCount(target.value)
-    }
-  }
-
-  return (
-    <div>
-      <input type='number' onChange={handleChange} value={count}/>
-      <button onCLick={() => onConfirm(count)}>Add to cart</button>
-    </div>
-  )
-}
-
-const ButtonCount = ({ onConfirm, maxQuantity}) => {
-  const [count, setCount] = useState(1)
-
-  const increment = () => {
-    if (count < maxQuantity) {
-      setCount(count + 1)
-    }
-  }
-
-  const decrement = () => {
-    if (count > 1) {
-      setCount(count - 1)
-    }
-  }
-
-  return (
-    <div>
-      <div className="mb-2 mt-2">
-          <div className="btn-group m-2" role="group" aria-label="First group">
-              <button type="button" className="btn btn-outline-secondary" onClick={increment}>+</button>
-              <button type="button" className="Disable btn border-secondary">{count}</button>
-              <button type="button" className="btn btn-outline-secondary" onClick={decrement}>-</button>
-          </div>
-          <button type="button" className="btn btn-outline-primary m-2" onClick={() => onConfirm(count)}>Add to cart</button>
-      </div>
-      <Link to='/cart'><button type="button" className="btn btn-outline-warning m-2">Purchase</button></Link>
-    </div>
-  )
-}*/}
 
 const ItemDetail = ({product}) => {
   

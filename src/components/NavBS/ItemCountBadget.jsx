@@ -7,7 +7,7 @@ const ItemCountBadget = () => {
     const {addQty} = useContext(CartContext);
     return (
         
-        <p className="badge bg-secondary">{addQty()}</p>
+        <span className="badge bg-secondary">{addQty()}</span>
     )
 }
 

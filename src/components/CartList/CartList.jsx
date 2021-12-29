@@ -33,8 +33,8 @@ const CartList = () => {
                     <div className='row m-3'>  
                         <div className="col mt-3"><h6>Total</h6></div>
                         <div className="col mt-3"><h6>$ {total()},00</h6></div>
-                        <div className="col mt-3"><h6></h6></div>
-                        <div className="col mt-3"><h6></h6></div>
+                        <div className="col mt-3"></div>
+                        <div className="col mt-3"></div>
                     </div>
             
                     <div className='row m-3 d-flex justify-content-center'>

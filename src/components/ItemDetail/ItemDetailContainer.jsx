@@ -1,6 +1,5 @@
 import React from "react";
 import ItemDetail from "./ItemDetail";
-import { getProductById } from "../../service/getProducts";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getDoc, doc } from 'firebase/firestore'
@@ -31,8 +30,8 @@ function ItemDetailCointainer() {
     }, [objId]);
 
     if (loading) {
-        return  <div class="spinner-border text-secondary" role="status">
-                    <span class="visually-hidden">Loading...</span>
+        return  <div className="spinner-border text-secondary" role="status">
+                    <span className="visually-hidden">Loading...</span>
                 </div>
     }
 
