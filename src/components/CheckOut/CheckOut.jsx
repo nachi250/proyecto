@@ -40,18 +40,20 @@ const CheckOut = () => {
         const outOfStock = [];
 
         newOrder.items.forEach((prod) => {
-            getDoc(doc(db, 'items'), prod.id).then((documentSnapshot) => {
-                if(documentSnapshot.data().stock >= prod.quantity) {
-                    batch.update(doc(db, 'items', documentSnapshot),{
+            getDoc(doc(db, 'items', prod.item.id)).then((documentSnapshot) => {
+                if(documentSnapshot.data().stock >= prod.quantity){
+                    batch.update(doc(db, 'items', documentSnapshot.id),{
                         stock: documentSnapshot.data().stock - prod.quantity
                     })
+                    console.log('se ejecuto correctamente')
                 } else {
-                    outOfStock.push({ id: documentSnapshot.id, ...documentSnapshot.data()})
+                    outOfStock.push({ id: documentSnapshot.id, ...documentSnapshot.data() })
                 }
-            })
+             })
         })
 
-        if (outOfStock === 0) {
+        if (outOfStock.length === 0) {
+            console.log('entro al if outOfstock')
             addDoc(collection(db, 'orders'), newOrder).then(({id}) =>{
                 batch.commit().then(() => {
                     console.log('success, order ID: ', id)
