@@ -19,8 +19,8 @@ $xl: 1200px;
 }
 
 @media (max-width: $lg) {
-    .sm-icon-collapse{
-        visibility: collapse;
+    .sm-icon-display-none{
+        display: none;
     }
 }
 

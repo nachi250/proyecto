@@ -1,3 +1,4 @@
+import './styles.scss'
 import React from 'react';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
@@ -9,20 +10,20 @@ const CartList = () => {
 
     return (
         
-        <div className="card shadow p-3 mb-5 bg-body rounded" style={{width: "60%"}}>
+        <div className="card shadow p-3 m-auto mb-5 bg-body rounded" style={{width: "80%"}}>
             {cart.length > 0 ?
 
             <div className="card-body container">
 
-                    <div className='row mb-3'>  
-                        <div className="col"><h5>Image</h5></div>
-                        <div className="col"><h5>Name</h5></div>
-                        <div className="col"><h5>Price</h5></div>
-                        <div className="col"><h5>Quantity</h5></div>
+                    <div className='row mb-3 cart-detail-display-none'>  
+                        <div className="col-3"><p className='h5'>Image</p></div>
+                        <div className="col-3"><p className='h5'>Name</p></div>
+                        <div className="col-3"><p className='h5'>Price</p></div>
+                        <div className="col-3"><p className='h5'>Quantity</p></div>
                     </div>
 
                     {cart.map(producto => {
-                        return <div className='row m-1'>
+                        return <div className='row m-1 cart-detail-display-none'>
                                     <div className="col-3 m-auto"><img src={producto.item.img} alt="..." width={70} /></div>
                                     <div className="col-3 m-auto">{producto.item.name} </div>
                                     <div className="col-3 m-auto">${producto.item.price},00</div>
@@ -33,13 +34,13 @@ const CartList = () => {
                     <div className='row m-3'>  
                         <div className="col mt-3"><h6>Total</h6></div>
                         <div className="col mt-3"><h6>$ {total()},00</h6></div>
-                        <div className="col mt-3"></div>
-                        <div className="col mt-3"></div>
+                        <div className="col mt-3 cart-detail-display-none"></div>
+                        <div className="col mt-3 cart-detail-display-none"></div>
                     </div>
             
                     <div className='row m-3 d-flex justify-content-center'>
-                        <Link to="/checkout"><button type="button" className=" col-3 btn btn-outline-info m-3">Set order</button></Link>
-                        <button type="button" className=" col-3 btn btn-outline-danger m-3" onClick={cleanCart}>Clean cart</button>
+                        <Link to="/checkout"><button type="button" className=" col-3 btn btn-outline-info m-3" style={{width: "auto"}}>Set order</button></Link>
+                        <button type="button" className=" col-3 btn btn-outline-danger m-3" onClick={cleanCart} style={{width: "auto"}}>Clean cart</button>
                     </div>
             </div>
             :
@@ -50,7 +51,7 @@ const CartList = () => {
                     <h5 className="card-title placeholder-glow">
                       Parece que no hay productos para mostrar!
                     </h5>
-                    <Link to="/"><button type="button" className=" col-3 btn btn-outline-info m-3">Shop</button></Link>
+                    <Link to="/"><button type="button" className=" col-3 btn btn-outline-info m-3" style={{width: "auto"}}>Shop</button></Link>
                 </div>
             </div>
         }

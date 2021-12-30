@@ -1,7 +1,9 @@
 import React,{useState} from 'react';
 import './itemCount.scss'
 
+
 const ItemCount = ({ onConfirm, maxQuantity}) => {
+
   const [count, setCount] = useState(1)
 
   const increment = () => {
@@ -24,8 +26,14 @@ const ItemCount = ({ onConfirm, maxQuantity}) => {
               <button type="button" className="Disable btn border-secondary">{count}</button>
               <button type="button" className="btn btn-outline-secondary" onClick={decrement}>-</button>
           </div>
-          <button type="button" className="btn btn-outline-primary m-2" onClick={() => onConfirm(count)}>Add to cart</button>
-      </div>
+          {
+            maxQuantity > 0 ?
+            <button type="button" className="btn btn-outline-primary m-2 on-confirm" onClick={() => onConfirm(count)}>Add to cart</button>
+            :
+            <button type="button" className="btn btn-outline-primary m-2 on-confirm" disabled>Out of stock</button>
+          }
+          
+          </div>
     </div>
   )
 }
