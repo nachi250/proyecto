@@ -9,26 +9,26 @@ const CartList = () => {
     const {cart, cleanCart, removeItem, total} = useContext (CartContext);
 
     return (
-        
+      
         <div className="card shadow p-3 m-auto mb-5 bg-body rounded" style={{width: "80%"}}>
             {cart.length > 0 ?
 
             <div className="card-body container">
 
-                    <div className='row mb-3 cart-detail-display-none'>  
-                        <div className="col-3"><p className='h5'>Image</p></div>
-                        <div className="col-3"><p className='h5'>Name</p></div>
-                        <div className="col-3"><p className='h5'>Price</p></div>
-                        <div className="col-3"><p className='h5'>Quantity</p></div>
+                    <div className='row mb-3'>  
+                        <div className="col-3"><p className='h5 cart-detail-display-none'>Image</p></div>
+                        <div className="col-3"><p className='h5 cart-detail-display-none'>Name</p></div>
+                        <div className="col-3"><p className='h5 cart-detail-display-none'>Price</p></div>
+                        <div className="col-3"><p className='h5 cart-detail-display-none'>Quantity</p></div>
                     </div>
 
                     {cart.map(producto => {
-                        return <div className='row m-1 cart-detail-display-none'>
-                                    <div className="col-3 m-auto"><img src={producto.item.img} alt="..." width={70} /></div>
-                                    <div className="col-3 m-auto">{producto.item.name} </div>
-                                    <div className="col-3 m-auto">${producto.item.price},00</div>
-                                    <div className="col-2 m-auto">{producto.quantity}</div>
-                                    <div className="col-1 m-auto"><button type="button" className="btn-close" id={producto.item.id} onClick={removeItem}></button></div>
+                        return <div key={producto.item.id} className='row m-1'>
+                                    <div className="col-3 m-auto cart-detail-display-none"><img src={producto.item.img} alt="..." width={70} /></div>
+                                    <div className="col-3 m-auto cart-detail-display-none">{producto.item.name} </div>
+                                    <div className="col-3 m-auto cart-detail-display-none">${producto.item.price},00</div>
+                                    <div className="col-2 m-auto cart-detail-display-none">{producto.quantity}</div>
+                                    <div className="col-1 m-auto cart-detail-display-none"><button type="button" className="btn-close" id={producto.item.id} onClick={removeItem}></button></div>
                                 </div>})}
 
                     <div className='row m-3'>  

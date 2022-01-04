@@ -14,7 +14,7 @@ function ItemListContainer() {
     useEffect(() => {
         setLoading(true)
         getDocs(collection(db, 'items')).then(querySnapshot => {
-            //console.log(querySnapshot)
+            
             const products = querySnapshot.docs.map(doc =>{
                 return {id: doc.id, ...doc.data()}
             })

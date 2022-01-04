@@ -34,7 +34,7 @@ const CheckOut = () => {
             date: date,
             total: '$ '+total()+'.00',
         };
-        //console.log(newOrder)
+
 
         const batch = writeBatch(db);
         const outOfStock = [];
@@ -45,7 +45,7 @@ const CheckOut = () => {
                     batch.update(doc(db, 'items', documentSnapshot.id),{
                         stock: documentSnapshot.data().stock - prod.quantity
                     })
-                    console.log('se ejecuto correctamente')
+
                 } else {
                     outOfStock.push({ id: documentSnapshot.id, ...documentSnapshot.data() })
                 }
@@ -53,10 +53,10 @@ const CheckOut = () => {
         })
 
         if (outOfStock.length === 0) {
-            console.log('entro al if outOfstock')
+            
             addDoc(collection(db, 'orders'), newOrder).then(({id}) =>{
                 batch.commit().then(() => {
-                    console.log('success, order ID: ', id)
+                    console.log('¡Success! Order ID: ', id)
                     setTimeout(() => {
                         cleanCart()
                     }, 2000);
@@ -85,13 +85,13 @@ const CheckOut = () => {
 
             <div className="m-3 col-lg-5 col-md-8 col-sm-8 col-xs-8 card m-3 shadow p-3 mb-5 bg-body rounded">
                 <div className='row mb-3'>  
-                            <div className="col"><h5>Your order</h5></div>
+                    <div className="col"><h5>Your order</h5></div>
                 </div>
-            {cart.map(producto => { 
-                        return <div className='m-3 row'>
-                                    <div className="col-6 m-auto">{producto.item.name} </div>
-                                    <div className="col-6 m-auto">{producto.quantity}</div>
-                                </div>})}
+                {cart.map(producto => { 
+                    return <div key={producto.item.id} className='m-3 row'>
+                                <div className="col-6 m-auto">{producto.item.name} </div>
+                                <div className="col-6 m-auto">{producto.quantity}</div>
+                            </div>})}
                 <div className='row m-3'>  
                     <div className="col mt-3"><h6>Total</h6></div>
                     <div className="col mt-3"><h6>$ {total()},00</h6></div>

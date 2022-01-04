@@ -40,16 +40,16 @@ const NavBS = () => {
                 <ul className="navbar-nav navbar-link ms-auto me-auto">
                   <li className="nav-item">
                   <div className="dropdown">
-                    <Link to={'/'}><h1 className="btn btn-light m-3 fs-2" style={{ textDecoration: 'none', color: 'black' }}>Home</h1></Link>
+                    <NavLink to={'/'}><h1 className="btn m-3 fs-2" style={{ textDecoration: 'none', color: 'black' }}>Home</h1></NavLink>
                   </div>
                   </li>
                   <li className="nav-item">
                     <div className="dropdown">
-                      <h1 className="btn btn-light m-3 fs-2" id="dropdownMenuButton1" data-bs-toggle="dropdown">Shop</h1>
+                      <h1 className="btn m-3 fs-2" id="dropdownMenuButton1" data-bs-toggle="dropdown">Shop</h1>
                       <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                       {categories.map( cat =>
-                        <li>
-                          <NavLink key={cat.id}  to={`/category/${cat.id}`} className="m-3" style={{ textDecoration: 'none', color: 'black' }} activeClassName='fw-bolder m-3'>{cat.description}</NavLink>
+                        <li key={cat.id}>
+                          <NavLink to={`/category/${cat.id}`} className="m-3" style={{ textDecoration: 'none', color: 'black' }} activeClassName='fw-bolder m-3'>{cat.description}</NavLink>
                         </li>
                       )}
                         
