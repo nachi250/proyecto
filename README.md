@@ -1,13 +1,36 @@
-Proyecto Integrador del curso de React JS de CoderHouse.
-Realizado por Ignacio Soria.
-Primera entrega del proyecto final. 
-El proyecto consiste en un e-commerce para un emprendimiento de productos con madera y resina con motivos del oceano, el surf y la playa.
-Hasta el momento el proyecto incluye:
-- La creación de la App de react
-- El menu de opciones o NavBar
-- Componentes
-- Promise y Map
+# Integrating Project. 
+CoderHouse React JS Course.
+
+# Developed by:
+Ignacio Soria, January 5, 2022
+
+The project consists of an e-commerce for a business of products with wood and resin with motifs of the ocean, surf and the beach.
+
+# Contains the topics seen during the different lessons:
+- Installation and configuration of the environment
+- Components
 - Routing
+- Events
+- Context
+- Firebase
+
+
+1) To initialize the App it is necessary to have node.js.
+
+2) once inside the directory corresponding to the "project" execute 'npm i'.
+
+3) Then run 'npm start' to run the App locally.
+
+4) The styles in the App are provided by Bootstrap.
+
+
+
+# --> IMPORTAN <--
+The design, styles and colors and the logo, as well as the products, descriptions and images, 
+have been taken from https://www.rustedindigo.com/
+For educational and non-commercial purposes only,
+and in order to serve as a guide in the development of the project.
+
 
 # Getting Started with Create React App
 
