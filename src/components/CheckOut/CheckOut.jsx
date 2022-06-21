@@ -72,13 +72,13 @@ const CheckOut = () => {
         <div className="row d-flex justify-content-evenly">
             <form method="POST" className="m-3 col-lg-5 col-md-8 col-sm-8 col-xs-8 card m-3 shadow p-3 mb-5 bg-body rounded">
                 <div className="mb-3">
-                    <input type="text" className="form-control" onChange={getForm} type="text" name="name" placeholder="name"/>
+                    <input type="text" className="form-control" onChange={getForm} name="name" placeholder="name"/>
                 </div>
                 <div className="mb-3">
-                    <input type="text" className="form-control" onChange={getForm} type="text" name="phone"placeholder="phone"/>    
+                    <input type="text" className="form-control" onChange={getForm} name="phone"placeholder="phone"/>    
                 </div>
                 <div className="mb-3">
-                    <input type="email" className="form-control" onChange={getForm} type="text" name="mail" placeholder="mail"/>
+                    <input type="email" className="form-control" onChange={getForm} name="mail" placeholder="mail"/>
                 </div>
                 <p className="btn btn-primary m-3" onClick={dispatchPurchase}>Order</p>
             </form>
